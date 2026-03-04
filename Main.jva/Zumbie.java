@@ -11,10 +11,15 @@ public class Zumbie {
         System.out.print("o zumbie " + nome + " tem vida : ");
         return vida;
     }
-    public void transfereVida(Zumbie zumbiAlvo,double quantia)
+    public boolean transfereVida(Zumbie zumbiAlvo,double quantia)
     {
-        zumbiAlvo.vida=zumbiAlvo.vida+quantia;
-        vida = vida-quantia;
+        if(vida>=quantia) {
+            zumbiAlvo.vida = zumbiAlvo.vida + quantia;
+            vida = vida - quantia;
+            return false;
+        }
+        else
+            return true;
     }
 
 }
