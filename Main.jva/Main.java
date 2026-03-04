@@ -4,11 +4,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         Zumbie z1 = new Zumbie();
-        z1.nome="Chris";
-        z1.vida=150;
+        z1.nome = "Chris";
+        z1.vida = 150;
         Zumbie z2 = new Zumbie();
-        z2.nome="Leon";
-        z2.vida=150;
+        z2.nome = "Leon";
+        z2.vida = 150;
         double quantia;
 
         z1.grito();
@@ -16,10 +16,13 @@ public class Main {
         z2.grito();
         System.out.println(z2.mostraVida());
         System.out.println("");
-
+        
+        do
+        {
         System.out.println("Zumbie " + z1.nome + " comeca a tentar transferir vida para Zumbie " + z2.nome + " insira a quantidade de vida");
         quantia = sc.nextDouble();
-        z1.transfereVida(z2,quantia);
+         }
+        while(z1.transfereVida(z2,quantia));
 
         System.out.println(z1.mostraVida());
         System.out.println(z2.mostraVida());
