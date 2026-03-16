@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.Random;
 public class Matriz {
     int[][] tabela = new int[8][8];
@@ -31,8 +30,8 @@ public class Matriz {
 
         for(int i = linha -1; i<=linha+1 ; i++) {
             for (int j = coluna - 1; j <= coluna + 1; j++) {
-                 if( i >= 0 && i< tabela.length  && j>=0  && j< tabela[0].length && !(i == linha && j == coluna)  )
-                     soma = soma+tabela[i][j];
+                if( i >= 0 && i< tabela.length  && j>=0  && j< tabela[0].length && !(i == linha && j == coluna)  )
+                    soma = soma+tabela[i][j];
             }
         }
         return soma ;
