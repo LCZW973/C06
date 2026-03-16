@@ -49,7 +49,7 @@ public class Main {
             }
 
 
-        }while( campo.ganhador[indicevitoria] == 0 );
+        }while( campo.ganhador[indicevitoria] == -1 );
 
         System.out.println(" Parabens ! voce chegou ao fim com " + j  + " jpgadas ");
         campo.mostrarcampo();
