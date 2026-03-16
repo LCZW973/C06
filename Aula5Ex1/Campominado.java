@@ -1,18 +1,19 @@
 public class Campominado {
-    String [][] campo = new String[10][10];
+    String[][] campo = new String[8][8];
     Matriz matriz = new Matriz();
-    void criarcampo()
-    {
-        for(int i = 0 ; i <8;i++)
-            for(int j = 0 ; j<8;j++)
+    int[] ganhador = new int[64];
+
+    void criarcampo() {
+        for (int i = 0; i < 8; i++)
+            for (int j = 0; j < 8; j++)
                 campo[i][j] = "?";
     }
-    void inserirbandeira(int i ,int j)
-    {
-        campo[i][j] = "b" ;
+
+    void inserirbandeira(int i, int j) {
+        campo[i][j] = "b";
     }
-    void mostrarcampo()
-    {
+
+    void mostrarcampo() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++)
                 System.out.print(" | " + campo[i][j] + " | ");
@@ -20,22 +21,37 @@ public class Campominado {
 
         }
     }
-    void addBomba (int numeroBombas)
-    {
-       matriz.insertone(numeroBombas);
+
+    void addBomba(int numeroBombas) {
+        matriz.insertone(numeroBombas);
     }
-     boolean comparacampo(int linha,int coluna)
-    {
-        if(matriz.comparamatriz(linha,coluna))
-        {
+
+    boolean comparacampo(int linha, int coluna) {
+        if (matriz.comparamatriz(linha, coluna)) {
             campo[linha][coluna] = "*";
             return true;
-        }
-            else
-                campo[linha][coluna] = String.valueOf(matriz.somaaoredor(linha,coluna));
+        } else
+            campo[linha][coluna] = String.valueOf(matriz.somaaoredor(linha, coluna));
 
-            return false;
+        return false;
+    }
+    void inicializaganhador()
+    {
+        for(int i = 0 ; i <64 ; i++){
+            ganhador[i] == -1;
+        }
     }
 
+    boolean confereseganhou(int linha, int coluna, int indicevitoria, int i) {
+        int pos = 8 * linha + coluna;
 
-     }
+        for (int j = 0; j <= indicevitoria; j++) {
+            if (ganhador[j] == pos)
+                return false;
+        }
+
+        ganhador[i] = pos;
+
+        return true ;
+    }
+}
